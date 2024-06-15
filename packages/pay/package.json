@@ -1,0 +1,8 @@
+{
+  "name": "@basedev/pay",
+  "scripts": {
+    "dev": "vitest",
+    "publish": "jsr publish"
+  },
+  "sideEffects": false
+}
