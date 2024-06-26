@@ -1,16 +1,31 @@
 {
   "name": "monorepo",
+  "private": true,
   "type": "module",
+  "scripts": {
+    "dev": "turbo run dev",
+    "build": "turbo run build",
+    "test": "turbo run test",
+    "lint": "turbo run lint",
+    "clean": "turbo run clean && rm -rf .turbo node_modules bun.lockb",
+    "check": "taze major -r",
+    "bump": "taze major -rwi"
+  },
+  "engines": {
+    "node": ">= 22"
+  },
   "workspaces": [
     "packages/*",
     "apps/*"
   ],
   "devDependencies": {
-    "@biomejs/biome": "^1.8.1",
-    "@types/bun": "^1.1.4",
+    "@biomejs/biome": "^1.8.2",
+    "@types/bun": "^1.1.5",
     "jsr": "^0.12.4",
-    "turbo": "^2.0.4",
-    "typescript": "^5.4.5",
+    "taze": "^0.13.8",
+    "turbo": "^2.0.5",
+    "typescript": "^5.5.2",
     "vitest": "^1.6.0"
-  }
+  },
+  "packageManager": "bun@1.1.17"
 }

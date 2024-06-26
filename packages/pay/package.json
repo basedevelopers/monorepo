@@ -2,7 +2,13 @@
   "name": "@basedev/pay",
   "scripts": {
     "dev": "vitest",
-    "publish": "jsr publish"
+    "publish": "jsr publish",
+    "clean": "rm -rf node_modules .turbo"
   },
-  "sideEffects": false
+  "sideEffects": false,
+  "dependencies": {
+    "permissionless": "^0.1.31",
+    "reverse-mirage": "^1.1.0",
+    "viem": "^2.16.2"
+  }
 }
