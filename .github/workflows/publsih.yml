@@ -5,6 +5,11 @@ on:
     branches:
       - main
 
+  workflow_run:
+    workflows: ["Deploy - Production"]
+    types:
+      - completed
+
 jobs:
   publish:
     runs-on: ubuntu-latest
