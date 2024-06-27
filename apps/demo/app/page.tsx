@@ -13,7 +13,6 @@ import {
 import {
   Form,
   FormControl,
-  FormDescription,
   FormItem,
   FormLabel,
 } from "@basedev/common/components/ui/form"
@@ -47,7 +46,7 @@ export default function Page() {
       network: "testnet",
       currency: "USDC",
       amount: 0.01,
-      to: `0xB837A38cf795206771A1f851192bD65a6f9f936F`,
+      to: `0x17524BD1e132610a39C9C87845992Ce6dB331B68`,
     },
     shouldUnregister: false,
   })
@@ -119,7 +118,6 @@ export default function Page() {
                 <BaseLogo className="size-8 fill-[#0052FF]" />
                 Base Payments Demo
               </CardTitle>
-              {/* <CardDescription>Card Description</CardDescription> */}
             </CardHeader>
             <CardContent className="flex flex-col gap-4">
               <FormItem>
@@ -156,7 +154,23 @@ export default function Page() {
               </FormItem>
 
               <FormItem>
-                <FormLabel className="ml-1">Currency</FormLabel>
+                <FormLabel className="ml-1 flex h-6 items-center justify-between">
+                  Currency
+                  <Button
+                    asChild
+                    variant="link"
+                    className="flex h-4 gap-1 self-end p-0 text-xs opacity-70 hover:opacity-100"
+                  >
+                    <a
+                      href="https://faucet.circle.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      USDC Faucet
+                      <ExternalLink className="size-3" />
+                    </a>
+                  </Button>
+                </FormLabel>
                 <FormControl>
                   <Tabs
                     defaultValue="USDC"
