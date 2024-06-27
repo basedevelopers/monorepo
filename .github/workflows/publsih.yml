@@ -19,4 +19,6 @@ jobs:
 
     steps:
       - uses: actions/checkout@main
+      - run: npm i -g bun @antifu/ni
+      - run: ni
       - run: cd packages/pay && npx jsr publish
