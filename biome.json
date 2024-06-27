@@ -13,7 +13,8 @@
         "useSelfClosingElements": "off"
       },
       "correctness": {
-        "noUnusedVariables": "warn"
+        "noUnusedVariables": "warn",
+        "useExhaustiveDependencies": "warn",
       },
       "nursery": {
         "useSortedClasses": {
