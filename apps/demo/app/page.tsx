@@ -18,7 +18,7 @@ import {
 } from "@basedev/common/components/ui/form"
 import { Input } from "@basedev/common/components/ui/input"
 import { Tabs, TabsList, TabsTrigger } from "@basedev/common/components/ui/tabs"
-import { useLogging } from "@basedev/common/hooks/useLogging"
+import { sendLog } from "@basedev/common/hooks/useLogging"
 import { getHost } from "@basedev/common/utils/getHost"
 import { BasePay } from "@basedev/pay"
 import type { SupportedCurrency } from "@basedev/pay/payment"
@@ -39,7 +39,6 @@ const FormSchema = z.object({
 type FormValues = z.infer<typeof FormSchema>
 
 export default function Page() {
-  const { sendLog } = useLogging()
   const form = useForm<FormValues>({
     resolver: zodResolver(FormSchema),
     defaultValues: {
@@ -165,6 +164,9 @@ export default function Page() {
                       href="https://faucet.circle.com"
                       target="_blank"
                       rel="noopener noreferrer"
+                      onClick={() => {
+                        sendLog(`USDC Faucet`)
+                      }}
                     >
                       USDC Faucet
                       <ExternalLink className="size-3" />

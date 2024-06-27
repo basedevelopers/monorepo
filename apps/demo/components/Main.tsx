@@ -7,7 +7,7 @@ import type { PropsWithChildren } from "react"
 type Props = PropsWithChildren
 
 export const Main = ({ children }: Props) => {
-  useLogging({ initialLog: true })
+  useLogging()
 
   return (
     <main className={cn("mx-auto flex h-full max-w-screen-sm")}>

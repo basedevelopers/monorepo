@@ -1,4 +1,4 @@
-export const getInfo = () =>
+export const getWhoami = () =>
   fetch(`https://services.home-assistant.io/whoami/v1`).then<R>((r) => r.json())
 
 export interface R {
