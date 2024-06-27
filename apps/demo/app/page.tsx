@@ -1,7 +1,22 @@
 "use client"
 
+import { BaseLogo } from "@basedev/common/components/BaseLogo"
 import { Loader2 } from "@basedev/common/components/Loader2"
 import { Button } from "@basedev/common/components/ui/button"
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@basedev/common/components/ui/card"
+import {
+  Form,
+  FormControl,
+  FormDescription,
+  FormItem,
+  FormLabel,
+} from "@basedev/common/components/ui/form"
 import { Input } from "@basedev/common/components/ui/input"
 import { Tabs, TabsList, TabsTrigger } from "@basedev/common/components/ui/tabs"
 import { BasePay } from "@basedev/pay"
@@ -21,12 +36,7 @@ const FormSchema = z.object({
 type FormValues = z.infer<typeof FormSchema>
 
 export default function Page() {
-  const {
-    formState: { isSubmitting: isPending },
-    handleSubmit,
-    register,
-    setValue,
-  } = useForm<FormValues>({
+  const form = useForm<FormValues>({
     resolver: zodResolver(FormSchema),
     defaultValues: {
       network: "testnet",
@@ -35,6 +45,12 @@ export default function Page() {
       to: `0xB837A38cf795206771A1f851192bD65a6f9f936F`,
     },
   })
+  const {
+    formState: { isSubmitting: isPending },
+    handleSubmit,
+    register,
+    setValue,
+  } = form
 
   const onSubmit = handleSubmit(async (data) => {
     const { amount, currency, to, network } = data
@@ -61,58 +77,97 @@ export default function Page() {
   })
 
   return (
-    <form className="" onSubmit={onSubmit}>
-      <fieldset className="flex flex-col gap-2 p-2" disabled={isPending}>
-        <Tabs
-          defaultValue="testnet"
-          className=""
-          onValueChange={(v) => {
-            setValue("network", v)
-          }}
-        >
-          <TabsList>
-            <TabsTrigger className="w-20" value="testnet">
-              Testnet
-            </TabsTrigger>
-            <TabsTrigger className="w-20" value="mainnet">
-              Mainnet
-            </TabsTrigger>
-          </TabsList>
-        </Tabs>
+    <Form {...form}>
+      <form className="mx-auto mt-[20%] size-fit" onSubmit={onSubmit}>
+        <fieldset disabled={isPending}>
+          <Card>
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2.5 text-lg">
+                <BaseLogo className="size-8 fill-[#0052FF]" />
+                Base Payments Demo
+              </CardTitle>
+              {/* <CardDescription>Card Description</CardDescription> */}
+            </CardHeader>
+            <CardContent className="flex flex-col gap-4">
+              <FormItem>
+                <FormLabel className="ml-1">Network</FormLabel>
+                <FormControl>
+                  <Tabs
+                    defaultValue="testnet"
+                    className="w-full"
+                    onValueChange={(v) => {
+                      setValue("network", v)
+                    }}
+                  >
+                    <TabsList className="w-full">
+                      <TabsTrigger className="grow" value="testnet">
+                        Testnet
+                      </TabsTrigger>
+                      <TabsTrigger className="grow" value="mainnet">
+                        Mainnet
+                      </TabsTrigger>
+                    </TabsList>
+                  </Tabs>
+                </FormControl>
+              </FormItem>
 
-        <Input
-          className="w-96"
-          {...register("to")}
-          placeholder="To Address (0x...)"
-        />
+              <FormItem>
+                <FormLabel className="ml-1">To Address</FormLabel>
+                <FormControl>
+                  <Input
+                    className="w-96 text-xs tabular-nums"
+                    {...register("to")}
+                    placeholder="To Address (0x...)"
+                  />
+                </FormControl>
+              </FormItem>
 
-        <Tabs
-          defaultValue="USDC"
-          className=""
-          onValueChange={(v) => {
-            setValue("currency", v)
-          }}
-        >
-          <TabsList>
-            <TabsTrigger className="w-20" value="USDC">
-              USDC
-            </TabsTrigger>
-            <TabsTrigger className="w-20" value="ETH">
-              ETH
-            </TabsTrigger>
-          </TabsList>
-        </Tabs>
+              <FormItem>
+                <FormLabel className="ml-1">Currency</FormLabel>
+                <FormControl>
+                  <Tabs
+                    defaultValue="USDC"
+                    className=""
+                    onValueChange={(v) => {
+                      setValue("currency", v)
+                      setValue("amount", v === "ETH" ? 0.0001 : 0.01)
+                    }}
+                  >
+                    <TabsList className="w-full">
+                      <TabsTrigger className="grow" value="ETH">
+                        ETH
+                      </TabsTrigger>
+                      <TabsTrigger className="grow" value="USDC">
+                        USDC
+                      </TabsTrigger>
+                    </TabsList>
+                  </Tabs>
+                </FormControl>
+              </FormItem>
 
-        <Input className="w-40" {...register("amount")} placeholder="Amount" />
-
-        <Button
-          type="submit"
-          className="m-0 h-8 w-20 font-medium text-sm"
-          size="sm"
-        >
-          {isPending ? <Loader2 className="size-5" /> : `Buy`}
-        </Button>
-      </fieldset>
-    </form>
+              <FormItem>
+                <FormLabel className="ml-1">Amount</FormLabel>
+                <FormControl>
+                  <Input
+                    className="w-96 text-xs tabular-nums"
+                    {...register("amount")}
+                    placeholder="Amount"
+                  />
+                </FormControl>
+              </FormItem>
+            </CardContent>
+            <CardFooter>
+              <Button
+                type="submit"
+                className="h-10 w-full font-medium text-lg"
+                size="sm"
+              >
+                {isPending ? <Loader2 className="size-5" /> : `Buy`}
+              </Button>
+            </CardFooter>
+          </Card>
+        </fieldset>
+      </form>
+    </Form>
   )
 }

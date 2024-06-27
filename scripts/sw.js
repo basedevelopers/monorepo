@@ -1,3 +1,12 @@
+// ==UserScript==
+// @name        Coinbase Wallet
+// @namespace   Violentmonkey Scripts
+// @match       https://wallet.coinbase.com/send
+// @grant       none
+// @version     1.0
+// @author      -
+// ==/UserScript==
+
 const $ = (sel) => document.querySelector(sel)
 
 const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
@@ -106,7 +115,6 @@ const main = async () => {
     return
   }
 
-  // remove query params
   window.history.replaceState({}, document.title, window.location.pathname)
 
   await setTo(to)
@@ -117,5 +125,4 @@ const main = async () => {
   blackOut(false)
 }
 
-// onload
 window.addEventListener("load", main)

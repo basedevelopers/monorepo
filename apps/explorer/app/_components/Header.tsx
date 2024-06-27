@@ -1,8 +1,8 @@
 "use client"
 
-import { BaseLogo } from "@/app/_components/Baselogo"
 import { useColorTheme } from "@/app/_hooks/useColorTheme"
 import { isTestnet } from "@/utils/isTestnet"
+import { BaseLogo } from "@basedev/common/components/BaseLogo"
 import { Badge } from "@basedev/common/components/ui/badge"
 import { Button } from "@basedev/common/components/ui/button"
 import {

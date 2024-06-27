@@ -47,14 +47,14 @@ export const generateMetadata = async (): Promise<Metadata> => {
 
 export default function RootLayout({ children }: Props) {
   return (
-    <html lang="en" className={cn("blue dark", CoinbaseSans.variable)}>
+    <html lang="en" className={cn("blue", CoinbaseSans.variable)}>
       <head>
         <meta
           name="viewport"
           content="width=device-width, initial-scale=1, viewport-fit=cover"
         />
       </head>
-      <body className="antialiased">
+      <body className="h-dvh antialiased">
         <Providers>{children}</Providers>
       </body>
     </html>
