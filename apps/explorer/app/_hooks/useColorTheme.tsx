@@ -23,8 +23,6 @@ export const useColorTheme = () => {
     document.documentElement.classList.add(newTheme)
   }
 
-  console.log(colorTheme)
-
   return {
     colorTheme,
     toggle,

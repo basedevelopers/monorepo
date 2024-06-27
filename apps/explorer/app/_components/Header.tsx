@@ -36,18 +36,17 @@ export function Header() {
         onClick={toggle}
       />
 
-      <h1 className="select-none font-semibold text-md">
+      <h1 className="flex select-none items-center gap-2.5 font-semibold text-md">
         Base Payments Explorer
+        {isTestnet() && (
+          <Badge
+            className="h-fit animate-fade-up p-0.5 px-1 text-[10px] text-primary"
+            variant="outline"
+          >
+            Testnet
+          </Badge>
+        )}
       </h1>
-
-      {isTestnet() && (
-        <Badge
-          className="ml-1 animate-fade-up p-0.5 px-1 text-[9px]"
-          variant="destructive"
-        >
-          Testnet
-        </Badge>
-      )}
 
       <div className="grow" />
 
