@@ -2,6 +2,8 @@
 
 import { BaseLogo } from "@/app/_components/Baselogo"
 import { useColorTheme } from "@/app/_hooks/useColorTheme"
+import { isTestnet } from "@/utils/isTestnet"
+import { Badge } from "@basedev/common/components/ui/badge"
 import { Button } from "@basedev/common/components/ui/button"
 import {
   Command,
@@ -34,9 +36,18 @@ export function Header() {
         onClick={toggle}
       />
 
-      <h1 className="select-none font-semibold text-lg">
+      <h1 className="select-none font-semibold text-md">
         Base Payments Explorer
       </h1>
+
+      {isTestnet() && (
+        <Badge
+          className="ml-1 animate-fade-up p-0.5 px-1 text-[9px]"
+          variant="destructive"
+        >
+          Testnet
+        </Badge>
+      )}
 
       <div className="grow" />
 

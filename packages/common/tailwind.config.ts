@@ -79,11 +79,22 @@ export default {
             opacity: "0.15",
           },
         },
+        "fade-up": {
+          from: {
+            opacity: "0",
+            transform: "translateY(8px)",
+          },
+          to: {
+            opacity: "1",
+            transform: "translateY(0)",
+          },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         spinner: "spinner 0.5s linear infinite",
+        "fade-up": "fade-up 0.4s cubic-bezier(.33,1.33,.23,1)",
       },
     },
   },
