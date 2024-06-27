@@ -11,7 +11,7 @@ import {
   type publicActions,
 } from "viem"
 import { base, baseSepolia } from "viem/chains"
-import { payment } from "./payment.ts"
+import { payment } from "./payment"
 
 type BasePayParams = {
   to: Address

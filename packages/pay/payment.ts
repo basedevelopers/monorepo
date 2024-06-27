@@ -6,12 +6,12 @@ import { privateKeyToSimpleSmartAccount } from "permissionless/accounts"
 import { createPimlicoPaymasterClient } from "permissionless/clients/pimlico"
 import { type Hex, parseEther, parseUnits, toHex } from "viem"
 import { type Address, generatePrivateKey } from "viem/accounts"
-import type { BaseInstance } from "./BasePay.ts"
-import { USDC } from "./tokens/USDC.ts"
-import { closePopup } from "./utils/closePopup.ts"
-import { abi } from "./utils/erc20.abi.ts"
-import { openPopup } from "./utils/openPopup.ts"
-import { wait } from "./utils/wait.ts"
+import type { BaseInstance } from "./BasePay"
+import { USDC } from "./tokens/USDC"
+import { closePopup } from "./utils/closePopup"
+import { abi } from "./utils/erc20.abi"
+import { openPopup } from "./utils/openPopup"
+import { wait } from "./utils/wait"
 
 type PaymentParams = {
   currency: SupportedCurrency

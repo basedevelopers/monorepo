@@ -1,1 +1,1 @@
-export { BasePay } from "./BasePay.ts"
+export { BasePay } from "./BasePay"

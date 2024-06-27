@@ -3,7 +3,7 @@
 import { hexToString } from "viem"
 import { http, createPublicClient } from "viem"
 import { base, baseSepolia } from "viem/chains"
-import { hexToData } from "./utils/hexToData.ts"
+import { hexToData } from "./utils/hexToData"
 // import { test } from "vitest"
 
 // test("index.ts", async () => {
