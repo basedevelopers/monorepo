@@ -20,9 +20,9 @@
   ],
   "devDependencies": {
     "@biomejs/biome": "^1.8.2",
-    "@types/bun": "^1.1.5",
+    "@types/bun": "^1.1.6",
     "jsr": "^0.12.4",
-    "taze": "^0.13.8",
+    "taze": "^0.13.9",
     "turbo": "^2.0.5",
     "typescript": "^5.5.2",
     "vitest": "^1.6.0"

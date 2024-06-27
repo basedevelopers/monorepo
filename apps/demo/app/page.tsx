@@ -103,13 +103,11 @@ export default function Page() {
           </TabsList>
         </Tabs>
 
-        {/* amount */}
         <Input className="w-40" {...register("amount")} placeholder="Amount" />
 
         <Button
           type="submit"
           className="m-0 h-8 w-20 font-medium text-sm"
-          // disabled={isPending}
           size="sm"
         >
           {isPending ? <Loader2 className="size-5" /> : `Buy`}
