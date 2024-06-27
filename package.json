@@ -19,7 +19,7 @@
     "apps/*"
   ],
   "devDependencies": {
-    "@biomejs/biome": "^1.8.2",
+    "@biomejs/biome": "^1.8.3",
     "@types/bun": "^1.1.6",
     "jsr": "^0.12.4",
     "taze": "^0.13.9",

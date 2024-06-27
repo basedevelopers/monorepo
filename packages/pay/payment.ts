@@ -4,18 +4,14 @@ import {
 } from "permissionless"
 import { privateKeyToSimpleSmartAccount } from "permissionless/accounts"
 import { createPimlicoPaymasterClient } from "permissionless/clients/pimlico"
-import { parseEther, parseUnits, toHex } from "viem"
-import {
-  type Address,
-  generatePrivateKey,
-  privateKeyToAccount,
-} from "viem/accounts"
-import type { BaseInstance } from "./BasePay"
-import { USDC } from "./tokens/USDC"
-import { closePopup } from "./utils/closePopup"
-import erc20abi from "./utils/erc20.abi.json"
-import { openPopup } from "./utils/openPopup"
-import { wait } from "./utils/wait"
+import { type Hex, parseEther, parseUnits, toHex } from "viem"
+import { type Address, generatePrivateKey } from "viem/accounts"
+import type { BaseInstance } from "./BasePay.ts"
+import { USDC } from "./tokens/USDC.ts"
+import { closePopup } from "./utils/closePopup.ts"
+import { abi } from "./utils/erc20.abi.ts"
+import { openPopup } from "./utils/openPopup.ts"
+import { wait } from "./utils/wait.ts"
 
 type PaymentParams = {
   currency: SupportedCurrency
@@ -27,86 +23,93 @@ const MINIMUM_USDC_AMOUNT = 0.01
 
 let popup: Window | null = null
 
-export const payment =
-  (Base: BaseInstance) => async (params: PaymentParams) => {
-    const { client, to, chain, transport } = Base
-    const { currency, amount, products } = params
+type PaymentReturn = {
+  hash: Hex
+}
 
-    if (currency === "USDC" && amount < MINIMUM_USDC_AMOUNT) {
-      throw new Error(`Minimum amount for USDC is ${MINIMUM_USDC_AMOUNT}`)
-    }
+type Payment = (
+  Base: BaseInstance,
+) => (params: PaymentParams) => Promise<PaymentReturn>
 
-    const privateKey = generatePrivateKey()
-    // const account = privateKeyToAccount(privateKey)
+export const payment: Payment = (Base) => async (params) => {
+  const { client, to, chain, transport } = Base
+  const { currency, amount, products } = params
 
-    const simpleAccount = await privateKeyToSimpleSmartAccount(client, {
-      privateKey,
-      // address: account.address,
-      entryPoint: ENTRYPOINT_ADDRESS_V06,
-    })
-
-    popup = openPopup(
-      `https://wallet.coinbase.com/send?${new URLSearchParams({
-        to: simpleAccount.address,
-        amount: `${amount}`,
-        currency,
-        chainId: `${chain.id}`,
-      })}`,
-    )
-
-    const cloudPaymaster = createPimlicoPaymasterClient({
-      chain,
-      transport,
-      entryPoint: ENTRYPOINT_ADDRESS_V06,
-    })
-
-    const smartAccountClient = createSmartAccountClient({
-      account: simpleAccount,
-      chain,
-      bundlerTransport: transport,
-      middleware: {
-        sponsorUserOperation: cloudPaymaster.sponsorUserOperation,
-      },
-    })
-
-    const success = await waitPayment({
-      address: simpleAccount.address,
-      amount,
-      client,
-      currency,
-    })
-
-    if (!success) {
-      throw new Error(`User closed the popup without paying`)
-    }
-
-    closePopup(popup)
-
-    const data = toHex(
-      JSON.stringify({
-        domain: globalThis.location.toString(),
-        products,
-      }),
-    )
-
-    const txHash = await (currency === "ETH"
-      ? smartAccountClient.sendTransaction({
-          account: smartAccountClient.account,
-          to,
-          data,
-          value: parseEther(`${amount}`),
-        })
-      : smartAccountClient.writeContract({
-          account: smartAccountClient.account,
-          abi: erc20abi,
-          address: USDC[chain.id].address,
-          functionName: "transfer",
-          args: [to, parseUnits(`${amount}`, USDC[chain.id].decimals)],
-          dataSuffix: data,
-        }))
-
-    return { hash: txHash }
+  if (currency === "USDC" && amount < MINIMUM_USDC_AMOUNT) {
+    throw new Error(`Minimum amount for USDC is ${MINIMUM_USDC_AMOUNT}`)
   }
+
+  const privateKey = generatePrivateKey()
+  // const account = privateKeyToAccount(privateKey)
+
+  const simpleAccount = await privateKeyToSimpleSmartAccount(client, {
+    privateKey,
+    // address: account.address,
+    entryPoint: ENTRYPOINT_ADDRESS_V06,
+  })
+
+  popup = openPopup(
+    `https://wallet.coinbase.com/send?${new URLSearchParams({
+      to: simpleAccount.address,
+      amount: `${amount}`,
+      currency,
+      chainId: `${chain.id}`,
+    })}`,
+  )
+
+  const cloudPaymaster = createPimlicoPaymasterClient({
+    chain,
+    transport,
+    entryPoint: ENTRYPOINT_ADDRESS_V06,
+  })
+
+  const smartAccountClient = createSmartAccountClient({
+    account: simpleAccount,
+    chain,
+    bundlerTransport: transport,
+    middleware: {
+      sponsorUserOperation: cloudPaymaster.sponsorUserOperation,
+    },
+  })
+
+  const success = await waitPayment({
+    address: simpleAccount.address,
+    amount,
+    client,
+    currency,
+  })
+
+  if (!success) {
+    throw new Error(`User closed the popup without paying`)
+  }
+
+  closePopup(popup)
+
+  const data = toHex(
+    JSON.stringify({
+      domain: globalThis.location.toString(),
+      products,
+    }),
+  )
+
+  const txHash = await (currency === "ETH"
+    ? smartAccountClient.sendTransaction({
+        account: smartAccountClient.account,
+        to,
+        data,
+        value: parseEther(`${amount}`),
+      })
+    : smartAccountClient.writeContract({
+        account: smartAccountClient.account,
+        abi,
+        address: USDC[chain.id].address,
+        functionName: "transfer",
+        args: [to, parseUnits(`${amount}`, USDC[chain.id].decimals)],
+        dataSuffix: data,
+      }))
+
+  return { hash: txHash }
+}
 
 type Product = {
   id: string

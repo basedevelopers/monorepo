@@ -11,7 +11,7 @@ import {
   type publicActions,
 } from "viem"
 import { base, baseSepolia } from "viem/chains"
-import { payment } from "./payment"
+import { payment } from "./payment.ts"
 
 type BasePayParams = {
   to: Address
@@ -24,7 +24,7 @@ const PAYMASTER_URL: { [key: string]: string } = {
   [baseSepolia.id]: `https://api.developer.coinbase.com/rpc/v1/base-sepolia/RNrmdU_5I-wUkOs27UzotQpWq2qyrwWt`,
 }
 
-export const BasePay = (params: BasePayParams) => {
+export const BasePay = (params: BasePayParams): BaseInstance => {
   const { to, testnet = false } = params
 
   if (!isAddress(to)) {
