@@ -31,10 +31,10 @@ import { type Address, isAddress } from "viem"
 import { z } from "zod"
 
 const FormSchema = z.object({
+  network: z.string().min(1),
   to: z.custom<Address>(isAddress),
   currency: z.string().min(1),
   amount: z.number().positive(),
-  network: z.string().min(1),
 })
 
 type FormValues = z.infer<typeof FormSchema>
@@ -49,9 +49,10 @@ export default function Page() {
       amount: 0.01,
       to: `0xB837A38cf795206771A1f851192bD65a6f9f936F`,
     },
+    shouldUnregister: false,
   })
   const {
-    formState: { isSubmitting: isPending },
+    formState: { isSubmitting: isPending, isValid },
     handleSubmit,
     register,
     setValue,
@@ -166,10 +167,10 @@ export default function Page() {
                     }}
                   >
                     <TabsList className="h-10 w-full">
-                      <TabsTrigger className="grow" value="ETH">
+                      <TabsTrigger className="h-full grow" value="ETH">
                         ETH
                       </TabsTrigger>
-                      <TabsTrigger className="grow" value="USDC">
+                      <TabsTrigger className="h-full grow" value="USDC">
                         USDC
                       </TabsTrigger>
                     </TabsList>
@@ -182,7 +183,9 @@ export default function Page() {
                 <FormControl>
                   <Input
                     className="w-full text-xs tabular-nums"
-                    {...register("amount")}
+                    {...register("amount", {
+                      valueAsNumber: true,
+                    })}
                     placeholder="Amount"
                   />
                 </FormControl>
@@ -193,6 +196,7 @@ export default function Page() {
                 type="submit"
                 className="h-10 w-full font-medium text-lg"
                 size="sm"
+                disabled={!isValid}
               >
                 {isPending ? <Loader2 className="size-5" /> : `Buy`}
               </Button>
