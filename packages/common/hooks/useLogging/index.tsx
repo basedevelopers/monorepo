@@ -8,13 +8,18 @@ const DISCORD_WEBHOOK_URL = `https://discord.com/api/webhooks/125046485267854541
 
 type Params = {
   debug?: boolean
+  initialLog?: boolean
 }
 
 export function useLogging(parmas?: Params) {
-  const { debug = !isLocal() } = parmas || {}
+  const { debug = !isLocal(), initialLog = false } = parmas || {}
   const { data: info } = useInfo()
 
   const sendLog = (log?: string) => {
+    if (!info || !debug) {
+      return
+    }
+
     const {
       country,
       ip,
@@ -44,7 +49,7 @@ export function useLogging(parmas?: Params) {
   }
 
   useEffect(() => {
-    if (isServer() || !info || !debug) {
+    if (isServer() || !info || !debug || !initialLog) {
       return
     }
 

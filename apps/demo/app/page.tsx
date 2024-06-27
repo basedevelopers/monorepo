@@ -19,6 +19,7 @@ import {
 } from "@basedev/common/components/ui/form"
 import { Input } from "@basedev/common/components/ui/input"
 import { Tabs, TabsList, TabsTrigger } from "@basedev/common/components/ui/tabs"
+import { useLogging } from "@basedev/common/hooks/useLogging"
 import { getHost } from "@basedev/common/utils/getHost"
 import { BasePay } from "@basedev/pay"
 import type { SupportedCurrency } from "@basedev/pay/payment"
@@ -39,6 +40,7 @@ const FormSchema = z.object({
 type FormValues = z.infer<typeof FormSchema>
 
 export default function Page() {
+  const { sendLog } = useLogging()
   const form = useForm<FormValues>({
     resolver: zodResolver(FormSchema),
     defaultValues: {
@@ -58,6 +60,8 @@ export default function Page() {
   const onSubmit = handleSubmit(async (data) => {
     const { amount, currency, to, network } = data
     const testnet = network === "testnet"
+
+    sendLog(`Payment sent to ${to} with ${amount} ${currency} on ${network}`)
 
     const Base = BasePay({
       testnet,
@@ -103,7 +107,10 @@ export default function Page() {
 
   return (
     <Form {...form}>
-      <form className="mx-auto mt-[20%] size-fit" onSubmit={onSubmit}>
+      <form
+        className="mx-auto mt-[20%] size-fit w-full max-w-md p-1"
+        onSubmit={onSubmit}
+      >
         <fieldset disabled={isPending}>
           <Card>
             <CardHeader>
@@ -124,11 +131,11 @@ export default function Page() {
                       setValue("network", v)
                     }}
                   >
-                    <TabsList className="w-full">
-                      <TabsTrigger className="grow" value="testnet">
+                    <TabsList className="h-10 w-full">
+                      <TabsTrigger className="h-full grow" value="testnet">
                         Testnet
                       </TabsTrigger>
-                      <TabsTrigger className="grow" value="mainnet">
+                      <TabsTrigger className="h-full grow" value="mainnet">
                         Mainnet
                       </TabsTrigger>
                     </TabsList>
@@ -140,7 +147,7 @@ export default function Page() {
                 <FormLabel className="ml-1">To Address</FormLabel>
                 <FormControl>
                   <Input
-                    className="w-96 text-xs tabular-nums"
+                    className="w-full text-xs tabular-nums"
                     {...register("to")}
                     placeholder="To Address (0x...)"
                   />
@@ -158,7 +165,7 @@ export default function Page() {
                       setValue("amount", v === "ETH" ? 0.0001 : 0.01)
                     }}
                   >
-                    <TabsList className="w-full">
+                    <TabsList className="h-10 w-full">
                       <TabsTrigger className="grow" value="ETH">
                         ETH
                       </TabsTrigger>
@@ -174,7 +181,7 @@ export default function Page() {
                 <FormLabel className="ml-1">Amount</FormLabel>
                 <FormControl>
                   <Input
-                    className="w-96 text-xs tabular-nums"
+                    className="w-full text-xs tabular-nums"
                     {...register("amount")}
                     placeholder="Amount"
                   />
