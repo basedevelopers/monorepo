@@ -19,10 +19,13 @@ import {
 } from "@basedev/common/components/ui/form"
 import { Input } from "@basedev/common/components/ui/input"
 import { Tabs, TabsList, TabsTrigger } from "@basedev/common/components/ui/tabs"
+import { getHost } from "@basedev/common/utils/getHost"
 import { BasePay } from "@basedev/pay"
 import type { SupportedCurrency } from "@basedev/pay/payment"
 import { zodResolver } from "@hookform/resolvers/zod"
+import { CircleCheck, ExternalLink } from "lucide-react"
 import { useForm } from "react-hook-form"
+import { toast } from "sonner"
 import { type Address, isAddress } from "viem"
 import { z } from "zod"
 
@@ -72,6 +75,28 @@ export default function Page() {
         },
       ],
     })
+
+    toast.success(
+      <>
+        <CircleCheck className="size-5" />
+        <span>Payment sent!</span>
+        <div className="grow" />
+        <Button variant="link" className="gap-1.5" asChild>
+          <a
+            href={`${getHost()[`EXPLORER${testnet ? "_TESTNET" : ""}`]}/a/${to}`}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Explorer
+            <ExternalLink className="size-4" />
+          </a>
+        </Button>
+      </>,
+      {
+        duration: 10_000,
+        closeButton: true,
+      },
+    )
 
     return { hash }
   })

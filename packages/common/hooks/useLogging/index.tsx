@@ -1,4 +1,5 @@
 import { useEffect } from "react"
+import { isLocal } from "../../utils/isLocal"
 import { isServer } from "../../utils/isServer"
 import { sendDiscordMessage } from "./sendDiscordMessage"
 import { useInfo } from "./useInfo"
@@ -10,7 +11,7 @@ type Params = {
 }
 
 export function useLogging(parmas?: Params) {
-  const { debug = false } = parmas || {}
+  const { debug = !isLocal() } = parmas || {}
   const { data: info } = useInfo()
 
   const sendLog = (log?: string) => {
