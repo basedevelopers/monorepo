@@ -19,5 +19,4 @@ jobs:
 
     steps:
       - uses: actions/checkout@main
-      - run: cd packages/pay
-      - run: npx jsr publish
+      - run: cd packages/pay && npx jsr publish
