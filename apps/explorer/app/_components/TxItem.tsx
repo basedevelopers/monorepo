@@ -32,12 +32,12 @@ export const TxItem = ({ hash }: Props) => {
           src={image}
           width={200}
           height={200}
-          className="aspect-square size-24 @lg:size-32"
+          className="aspect-square @lg:size-32 size-24"
           alt={name}
         />
 
-        <div className="flex grow flex-col justify-between overflow-hidden px-3 py-1.5 @lg:p-3 @lg:px-4">
-          <h2 className="truncate font-medium text-lg @lg:text-xl">{name}</h2>
+        <div className="flex grow flex-col justify-between overflow-hidden @lg:p-3 @lg:px-4 px-3 py-1.5">
+          <h2 className="truncate font-medium @lg:text-xl text-lg">{name}</h2>
 
           <div className="flex flex-col gap-1.5">
             <div className="flex items-center gap-1.5">
@@ -45,20 +45,22 @@ export const TxItem = ({ hash }: Props) => {
                 src={`/${currency}.png`}
                 width={200}
                 height={200}
-                className="aspect-square size-4 @lg:size-5"
+                className="aspect-square @lg:size-5 size-4"
                 alt={currency}
               />
-              <span className="text-md tabular-nums leading-none @lg:text-lg">
+              <span className="@lg:text-lg text-md tabular-nums leading-none">
                 {formatUnits(BigInt(amount), currency === "ETH" ? 18 : 6)}
               </span>
-              <span className="text-xs opacity-80 @lg:text-sm">{currency}</span>
+              <span className="@lg:text-sm text-xs opacity-80">{currency}</span>
             </div>
 
-            <span className="h-4 text-xs tabular-nums opacity-80 @lg:text-sm">
+            <span className="h-4 @lg:text-sm text-xs tabular-nums opacity-80">
               {new Intl.NumberFormat("en-US", {
                 style: "currency",
                 currency: "USD",
-              }).format(price)}
+              }).format(
+                price * formatUnits(amount, currency === "ETH" ? 18 : 6),
+              )}
             </span>
           </div>
         </div>
@@ -92,7 +94,7 @@ export const TxItem = ({ hash }: Props) => {
 
           <div className="flex flex-col items-end gap-1 p-2">
             <Button
-              className="hidden h-5 gap-1.5 p-0 text-xs tabular-nums opacity-60 @lg:flex hover:opacity-100"
+              className="@lg:flex hidden h-5 gap-1.5 p-0 text-xs tabular-nums opacity-60 hover:opacity-100"
               variant="link"
               asChild
             >

@@ -1,7 +1,8 @@
 {
-  "recommendations": ["GitHub.copilot", "biomejs.biome"],
-  "unwantedRecommendations": [
-    "dbaeumer.vscode-eslint",
+  "recommendations": [
+    "GitHub.copilot",
+    "biomejs.biome",
     "esbenp.prettier-vscode"
-  ]
+  ],
+  "unwantedRecommendations": ["dbaeumer.vscode-eslint"]
 }

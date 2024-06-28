@@ -82,9 +82,15 @@ export function Header() {
                   </>
                 ) : null}
               </CommandItem>
-              <CommandItem className="flex gap-1.5">
-                <IconBrandGithub className="aspect-square size-5" />
-                GitHub
+              <CommandItem className="flex gap-1.5" asChild>
+                <a
+                  href="https://github.com/basedevelopers/monorepo"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <IconBrandGithub className="aspect-square size-5" />
+                  GitHub
+                </a>
               </CommandItem>
             </CommandList>
           </Command>
