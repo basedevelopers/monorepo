@@ -20,8 +20,8 @@ type BasePayParams = {
 }
 
 const PAYMASTER_URL: { [key: string]: string } = {
-  [base.id]: `https://api.developer.coinbase.com/rpc/v1/base/RNrmdU_5I-wUkOs27UzotQpWq2qyrwWt`,
-  [baseSepolia.id]: `https://api.developer.coinbase.com/rpc/v1/base-sepolia/RNrmdU_5I-wUkOs27UzotQpWq2qyrwWt`,
+  [base.id]: `https://api.developer.coinbase.com/rpc/v1/base/7jvXamhQ7ntv6o4pmGSNlRuPifq9Q95b`,
+  [baseSepolia.id]: `https://api.developer.coinbase.com/rpc/v1/base-sepolia/7jvXamhQ7ntv6o4pmGSNlRuPifq9Q95b`,
 }
 
 export const BasePay = (params: BasePayParams): BaseInstance => {
