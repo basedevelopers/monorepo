@@ -48,18 +48,19 @@ export const TxItem = ({ hash }: Props) => {
                 className="aspect-square @lg:size-5 size-4"
                 alt={currency}
               />
-              <span className="@lg:text-lg text-md tabular-nums leading-none">
+              <span className="font-mono @lg:text-lg text-md tabular-nums leading-none">
                 {formatUnits(BigInt(amount), currency === "ETH" ? 18 : 6)}
               </span>
               <span className="@lg:text-sm text-xs opacity-80">{currency}</span>
             </div>
 
-            <span className="h-4 @lg:text-sm text-xs tabular-nums opacity-80">
+            <span className="h-4 font-mono @lg:text-sm text-xs tabular-nums opacity-80">
               {new Intl.NumberFormat("en-US", {
                 style: "currency",
                 currency: "USD",
               }).format(
-                price * formatUnits(amount, currency === "ETH" ? 18 : 6),
+                price *
+                  +formatUnits(BigInt(amount), currency === "ETH" ? 18 : 6),
               )}
             </span>
           </div>
@@ -77,7 +78,7 @@ export const TxItem = ({ hash }: Props) => {
             </div>
 
             <Button
-              className="flex h-4 gap-1.5 p-0 text-xs tabular-nums opacity-80 hover:opacity-100"
+              className="flex h-4 gap-1.5 p-0 font-mono text-xs tabular-nums opacity-80 hover:opacity-100"
               variant="link"
               asChild
             >
@@ -94,7 +95,7 @@ export const TxItem = ({ hash }: Props) => {
 
           <div className="flex flex-col items-end gap-1 p-2">
             <Button
-              className="@lg:flex hidden h-5 gap-1.5 p-0 text-xs tabular-nums opacity-60 hover:opacity-100"
+              className="@lg:flex hidden h-5 gap-1.5 p-0 font-mono text-xs tabular-nums opacity-60 hover:opacity-100"
               variant="link"
               asChild
             >

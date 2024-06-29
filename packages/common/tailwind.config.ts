@@ -20,6 +20,7 @@ export default {
     extend: {
       fontFamily: {
         sans: ["var(--font-cb-sans)"],
+        mono: ["var(--font-cb-mono)"],
         // mono: ["var(--font-geist-mono)"],
       },
       colors: {

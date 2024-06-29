@@ -3,13 +3,18 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "dev": "vocs dev",
+    "dev": "vocs dev --port 9092",
     "build": "vocs build",
-    "preview": "vocs preview"
+    "preview": "vocs preview",
+    "clean": "rm -rf node_modules bun.lockb .turbo docs/dist"
   },
   "dependencies": {
+    "@basedev/common": "workspace:*",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "vocs": "^1.0.0-alpha.52"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.4"
   }
 }

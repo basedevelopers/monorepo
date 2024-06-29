@@ -15,7 +15,7 @@ export function SearchInput() {
       <Search className="absolute mx-2.5 aspect-square size-4 stroke-border group-focus-within:stroke-ring" />
 
       <Input
-        className="rounded-full pl-8 text-xs tabular-nums"
+        className="rounded-full pl-8 font-mono text-xs tabular-nums"
         placeholder="Enter tx hash or address"
         autoFocus
         defaultValue={address}

@@ -145,7 +145,7 @@ export default function Page() {
                 <FormLabel className="ml-1">To Address</FormLabel>
                 <FormControl>
                   <Input
-                    className="w-full text-xs tabular-nums"
+                    className="w-full font-mono text-xs tabular-nums"
                     {...register("to")}
                     placeholder="To Address (0x...)"
                   />
@@ -198,7 +198,7 @@ export default function Page() {
                 <FormLabel className="ml-1">Amount</FormLabel>
                 <FormControl>
                   <Input
-                    className="w-full text-xs tabular-nums"
+                    className="w-full font-mono text-xs tabular-nums"
                     {...register("amount", {
                       valueAsNumber: true,
                     })}
