@@ -1,5 +1,6 @@
 import { config, sendLog } from "@basedev/common/hooks/useLogging"
 import { isLocal } from "@basedev/common/utils/isLocal"
+import { isServer } from "@basedev/common/utils/isServer"
 import type { Theme } from "vitepress"
 import DefaultTheme from "vitepress/theme"
 import { h } from "vue"
@@ -9,7 +10,7 @@ export default {
   Layout() {
     config.enabled = !isLocal()
 
-    if (config.enabled) {
+    if (config.enabled && !isServer()) {
       const { pathname } = globalThis.location
       globalThis.addEventListener("locationchange", () => {
         const { pathname } = globalThis.location
