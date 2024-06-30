@@ -15,6 +15,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@basedev/common/components/ui/popover"
+import { sendLog } from "@basedev/common/hooks/useLogging"
 import { cn } from "@basedev/common/lib/utils"
 import { getHost } from "@basedev/common/utils/getHost"
 import { IconBrandGithub } from "@tabler/icons-react"
@@ -58,12 +59,15 @@ export function Header() {
                   href={`${getHost()[isTestnet() ? "EXPLORER_TESTNET" : "EXPLORER"]}${pathname}`}
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() =>
+                    sendLog(isTestnet() ? `Base Mainnet` : `Base Sepolia`)
+                  }
                 >
                   <BaseLogo
                     dark={isDarkMode}
                     className="aspect-square size-5 p-px"
                   />
-                  {!isTestnet() ? `Base Mainnet` : `Base Sepolia`}
+                  {isTestnet() ? `Base Mainnet` : `Base Sepolia`}
                 </a>
               </CommandItem>
               <CommandItem
@@ -94,6 +98,7 @@ export function Header() {
                   href="https://github.com/basedevelopers/monorepo"
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() => sendLog(`GitHub`)}
                 >
                   <IconBrandGithub className="aspect-square size-5" />
                   GitHub
