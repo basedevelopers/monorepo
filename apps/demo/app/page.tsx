@@ -1,7 +1,7 @@
 "use client"
 
 import { Value } from "@/app/_components/Value"
-import { ConnectlessLogo } from "@basedev/common/components/BaseLogo"
+import { ConnectlessLogo } from "@basedev/common/components/ConnectlessLogo"
 import { Loader2 } from "@basedev/common/components/Loader2"
 import { Button } from "@basedev/common/components/ui/button"
 import {
