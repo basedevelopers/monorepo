@@ -14,7 +14,7 @@ hero:
       link: /why
     - theme: alt
       text: GitHub
-      link: https://github.com/basedevelopers/monorepo/tree/main/packages/pay
+      link: https://github.com/basedevelopers/monorepo
   image:
     alt:
 

@@ -8,7 +8,7 @@ export default defineConfig({
     nav: [
       { text: "Home", link: "/" },
       { text: "Guide", link: "/why" },
-      { text: "Demo", link: "/demo" },
+      { text: "Example", link: "https://demo.base.dev" },
     ],
 
     sidebar: [
@@ -18,7 +18,8 @@ export default defineConfig({
           { text: "Why Connect-less Payments?", link: "/why" },
           { text: "Installation", link: "/installation" },
           { text: "Getting Started", link: "/getting-started" },
-          { text: "Demo", link: "/demo" },
+          { text: "Demo video", link: "/demo" },
+          { text: "Example", link: "https://demo.base.dev" },
         ],
       },
     ],

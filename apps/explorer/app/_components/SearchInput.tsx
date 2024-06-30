@@ -16,7 +16,7 @@ export function SearchInput() {
 
       <Input
         className="rounded-full pl-8 font-mono text-xs tabular-nums"
-        placeholder="Enter tx hash or address"
+        placeholder="Enter settlement address"
         autoFocus
         defaultValue={address}
         onChange={({ target }) => {

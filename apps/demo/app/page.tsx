@@ -26,6 +26,7 @@ import { getRandom } from "@basedev/common/utils/getRandom"
 import { BasePay } from "@basedev/pay"
 import type { SupportedCurrency } from "@basedev/pay/payment"
 import { zodResolver } from "@hookform/resolvers/zod"
+import { IconBrandGithub } from "@tabler/icons-react"
 import { CircleCheck, ExternalLink } from "lucide-react"
 import { useForm } from "react-hook-form"
 import { toast } from "sonner"
@@ -116,6 +117,16 @@ export default function Page() {
               <CardTitle className="flex items-center gap-2.5 text-xl">
                 <ConnectlessLogo className="size-8 fill-primary" />
                 Conect-less Payments Demo
+                <div className="grow" />
+                <Button asChild variant="ghost" size="icon" className="">
+                  <a
+                    href="https://github.com/basedevelopers/monorepo/blob/main/apps/demo/app/page.tsx#L76"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <IconBrandGithub className="aspect-square size-5 stroke-1" />
+                  </a>
+                </Button>
               </CardTitle>
             </CardHeader>
             <CardContent className="flex flex-col gap-4">
