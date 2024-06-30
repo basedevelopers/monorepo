@@ -59,6 +59,15 @@ export const generateMetadata = async (): Promise<Metadata> => {
       type: "website",
       url: `https://${HOST}`,
       siteName: title,
+      images: [
+        {
+          url: `/og.jpeg`,
+          alt: title,
+          type: "image/jpeg",
+          width: 1200,
+          height: 600,
+        },
+      ],
     },
   }
 }

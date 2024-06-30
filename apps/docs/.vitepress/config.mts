@@ -88,5 +88,143 @@ export default defineConfig({
         href: "/favicon-16x16.png",
       },
     ],
+
+    // <meta property="og:title" content="Connect-less Payments">
+    // <meta property="og:description" content="Simple and secure crypto payments, without connect wallet">
+    // <meta property="og:url" content="https://docs.base.dev">
+    // <meta property="og:site_name" content="Connect-less Payments">
+    // <meta property="og:image" content="https://docs.base.dev/og.jpeg">
+    // <meta property="og:image:alt" content="Connect-less Payments">
+    // <meta property="og:image:type" content="image/jpeg">
+    // <meta property="og:image:width" content="1200">
+    // <meta property="og:image:height" content="600">
+    // <meta name="twitter:card" content="summary_large_image">
+    // <meta name="twitter:title" content="Connect-less Payments">
+    // <meta name="twitter:description" content="Simple and secure crypto payments, without connect wallet">
+    // <meta name="twitter:image" content="https://docs.base.dev/og.jpeg">
+    // <meta name="twitter:image:alt" content="Connect-less Payments">
+    // <meta name="twitter:image:type" content="image/jpeg">
+    // <meta name="twitter:image:width" content="1200">
+    // <meta name="twitter:image:height" content="600">
+
+    [
+      "meta",
+      {
+        property: "og:title",
+        content: "Connect-less Payments",
+      },
+    ],
+    [
+      "meta",
+      {
+        property: "og:description",
+        content: "Simple and secure crypto payments, without connect wallet",
+      },
+    ],
+    [
+      "meta",
+      {
+        property: "og:url",
+        content: "https://docs.base.dev",
+      },
+    ],
+    [
+      "meta",
+      {
+        property: "og:site_name",
+        content: "Connect-less Payments",
+      },
+    ],
+    [
+      "meta",
+      {
+        property: "og:image",
+        content: "https://docs.base.dev/og.jpeg",
+      },
+    ],
+    [
+      "meta",
+      {
+        property: "og:image:alt",
+        content: "Connect-less Payments",
+      },
+    ],
+    [
+      "meta",
+      {
+        property: "og:image:type",
+        content: "image/jpeg",
+      },
+    ],
+    [
+      "meta",
+      {
+        property: "og:image:width",
+        content: "1200",
+      },
+    ],
+    [
+      "meta",
+      {
+        property: "og:image:height",
+        content: "600",
+      },
+    ],
+    [
+      "meta",
+      {
+        name: "twitter:card",
+        content: "summary_large_image",
+      },
+    ],
+    [
+      "meta",
+      {
+        name: "twitter:title",
+        content: "Connect-less Payments",
+      },
+    ],
+    [
+      "meta",
+      {
+        name: "twitter:description",
+        content: "Simple and secure crypto payments, without connect wallet",
+      },
+    ],
+    [
+      "meta",
+      {
+        name: "twitter:image",
+        content: "https://docs.base.dev/og.jpeg",
+      },
+    ],
+    [
+      "meta",
+      {
+        name: "twitter:image:alt",
+        content: "Connect-less Payments",
+      },
+    ],
+    [
+      "meta",
+      {
+        name: "twitter:image:type",
+        content: "image/jpeg",
+      },
+    ],
+    [
+      "meta",
+      {
+        name: "twitter:image:width",
+        content: "1200",
+      },
+    ],
+    [
+      "meta",
+      {
+        name: "twitter:image:height",
+        content: "600",
+      },
+    ],
   ],
 })
