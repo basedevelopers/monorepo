@@ -24,7 +24,7 @@ export default defineConfig({
     },
     {
       icon: "x",
-      link: "https://twitter.com/wevm_dev",
+      link: "https://twitter.com/basedotdev",
     },
   ],
   head({ path }) {
