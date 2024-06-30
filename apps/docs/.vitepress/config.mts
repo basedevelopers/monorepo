@@ -24,4 +24,5 @@ export default defineConfig({
       { icon: "x", link: "https://x.com/basedotdev" },
     ],
   },
+  cleanUrls: true,
 })

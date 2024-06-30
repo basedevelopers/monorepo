@@ -2,8 +2,8 @@
 
 import { useColorTheme } from "@/app/_hooks/useColorTheme"
 import { isTestnet } from "@/utils/isTestnet"
-import { ConnectlessLogo } from "@basedev/common/components/BaseLogo"
-import { Badge } from "@basedev/common/components/ui/badge"
+import { BaseLogo } from "@basedev/common/components/BaseLogo"
+import { ConnectlessLogo } from "@basedev/common/components/ConnectlessLogo"
 import { Button } from "@basedev/common/components/ui/button"
 import {
   Command,
@@ -16,15 +16,20 @@ import {
   PopoverTrigger,
 } from "@basedev/common/components/ui/popover"
 import { cn } from "@basedev/common/lib/utils"
+import { getHost } from "@basedev/common/utils/getHost"
 import { IconBrandGithub } from "@tabler/icons-react"
 import { LaptopMinimal, Menu, Moon, Sun } from "lucide-react"
 import { useTheme } from "next-themes"
+import { usePathname } from "next/navigation"
 import { useState } from "react"
 
 export function Header() {
   const [open, setOpen] = useState(false)
-  const { setTheme, theme, themes } = useTheme()
+  const { setTheme, theme, themes, resolvedTheme } = useTheme()
   const { toggle, colorTheme } = useColorTheme()
+  const pathname = usePathname()
+
+  const isDarkMode = resolvedTheme === "dark"
 
   return (
     <header className="flex min-h-12 w-full items-center gap-2 px-2.5 py-3">
@@ -34,15 +39,7 @@ export function Header() {
       />
 
       <h1 className="flex select-none items-center gap-2.5 font-semibold text-md">
-        Base Payments Explorer
-        {isTestnet() && (
-          <Badge
-            className="h-fit animate-fade-up p-0.5 px-1 text-[10px] text-primary"
-            variant="outline"
-          >
-            Testnet
-          </Badge>
-        )}
+        Connect-less Payments Explorer
       </h1>
 
       <div className="grow" />
@@ -53,9 +50,22 @@ export function Header() {
             <Menu />
           </Button>
         </PopoverTrigger>
-        <PopoverContent className="w-32 p-0" align="end">
+        <PopoverContent className="w-fit p-0" align="end">
           <Command>
             <CommandList>
+              <CommandItem className="flex gap-1.5" asChild>
+                <a
+                  href={`${getHost()[isTestnet() ? "EXPLORER_TESTNET" : "EXPLORER"]}${pathname}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <BaseLogo
+                    dark={isDarkMode}
+                    className="aspect-square size-5 p-px"
+                  />
+                  {!isTestnet() ? `Base Mainnet` : `Base Sepolia`}
+                </a>
+              </CommandItem>
               <CommandItem
                 className="flex gap-1.5"
                 onSelect={(currentValue) => {
