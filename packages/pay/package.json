@@ -7,18 +7,22 @@
     "type": "git",
     "url": "https://github.com/basedevelopers/monorepo/tree/main/packages/pay"
   },
-  "keywords": ["crypto", "payments", "web3", "base"],
+  "keywords": [
+    "crypto",
+    "payments",
+    "web3",
+    "base"
+  ],
   "scripts": {
     "dev": "vitest",
     "publish": "jsr publish",
     "clean": "rm -rf node_modules .turbo"
   },
-
   "license": "MIT",
   "sideEffects": false,
   "dependencies": {
     "permissionless": "^0.1.31",
     "reverse-mirage": "^1.1.0",
-    "viem": "^2.16.3"
+    "viem": "^2.16.4"
   }
 }
