@@ -44,6 +44,14 @@ export default defineConfig({
   outDir: "./dist",
   head: [
     [
+      "script",
+      {
+        defer: "",
+        src: "https://static.cloudflareinsights.com/beacon.min.js",
+        "data-cf-beacon": '{"token": "f1743b3bc38741a1a2bd8aef872dedee"}',
+      },
+    ],
+    [
       "link",
       {
         rel: "icon",

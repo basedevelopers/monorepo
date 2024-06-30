@@ -10,6 +10,7 @@ export const Providers = ({ children }: Props) => {
     <QueryProvider>
       <ThemeProvider>
         <Main>{children}</Main>
+        <CFAnalytics token="eacb280e049a4e29be4e00a7eb41b29e" />
       </ThemeProvider>
     </QueryProvider>
   )
