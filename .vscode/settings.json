@@ -35,6 +35,6 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[mdx]": {
-    "editor.defaultFormatter": "unifiedjs.vscode-mdx"
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   }
 }

@@ -22,6 +22,12 @@ export const getHost = () =>
       ["dev"]: `https://explorer.testnet.dev.base.dev`,
       ["production"]: "https://explorer.testnet.base.dev",
     }[getEnv()],
+
+    DOCS: {
+      ["local"]: "http://localhost:7092",
+      ["dev"]: `https://docs.dev.base.dev`,
+      ["production"]: "https://docs.base.dev",
+    }[getEnv()],
   }) as const
 
 export const getEnv = () => {

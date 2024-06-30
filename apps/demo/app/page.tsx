@@ -1,5 +1,6 @@
 "use client"
 
+import { Value } from "@/app/_components/Value"
 import { BaseLogo } from "@basedev/common/components/BaseLogo"
 import { Loader2 } from "@basedev/common/components/Loader2"
 import { Button } from "@basedev/common/components/ui/button"
@@ -54,7 +55,10 @@ export default function Page() {
     handleSubmit,
     register,
     setValue,
+    watch,
   } = form
+
+  const { amount, currency } = watch()
 
   const onSubmit = handleSubmit(async (data) => {
     const { amount, currency, to, network } = data
@@ -113,9 +117,9 @@ export default function Page() {
         <fieldset disabled={isPending}>
           <Card>
             <CardHeader>
-              <CardTitle className="flex items-center gap-2.5 text-lg">
+              <CardTitle className="flex items-center gap-2.5 text-xl">
                 <BaseLogo className="size-8 fill-[#0052FF]" />
-                Base Payments Demo
+                Conect-less Payments Demo
               </CardTitle>
             </CardHeader>
             <CardContent className="flex flex-col gap-4">
@@ -195,7 +199,10 @@ export default function Page() {
               </FormItem>
 
               <FormItem>
-                <FormLabel className="ml-1">Amount</FormLabel>
+                <FormLabel className="ml-1 flex h-6 items-center justify-between gap-2">
+                  Amount
+                  <Value amount={amount} currency={currency} />
+                </FormLabel>
                 <FormControl>
                   <Input
                     className="w-full font-mono text-xs tabular-nums"

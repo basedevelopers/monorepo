@@ -1,29 +1,61 @@
-# Get started
+# Getting Started
 
-Hello world!
+:::warning
+This library is **NOT** an official library of Coinbase.  
+As it is under active development, the interface may change.
+:::
 
+Get started with connect-less payments in just a few lines of code.
 
-owijefoijwef
+## Installation
 
-## test2
+:::code-group
 
-hahah
+```bash [npm]
+npx jsr add @basedev/pay
+```
 
+```bash [pnpm]
+pnpx jsr add @basedev/pay
+```
 
+```bash [yarn]
+yarn dlx jsr add @basedev/pay
+```
 
-## test3
+```bash [bun]
+bunx jsr add @basedev/pay
+```
 
-### 123
+:::
 
+## Quick Start
 
+Create a new instance of `BasePay` with the required options.
 
+```ts
+import { BasePay } from "@basedev/pay";
 
-## Test4
+const Base = BasePay({
+  testnet: true, // Use base sepolia testnet
+  to: "0x...", // Recipient address
+});
+```
 
-hahaha
+Use the `payment` method to create a payment request.
 
-- 1 1
+```ts
+const { hash } = await Base.payment({
+  currency: "USDC", // Currently, USDC and ETH are supported
+  amount: 0.01,
+  products: [
+    {
+      id: "product-id",
+      name: "Product Name",
+      image: "https://example.com/image.png",
+    },
+  ],
+});
+```
 
----
-
-## test5
+This will open the Coinbase Wallet Send page in a new popup window with all parameters filled in.

@@ -46,8 +46,9 @@ const CoinbaseMono = localFont({
 })
 
 export const generateMetadata = async (): Promise<Metadata> => {
-  const title = "Template"
-  const description = "A Next.js template"
+  const title = "Connect-less Pay Demo"
+  const description =
+    "Simple and secure crypto payments, without connect wallet"
 
   return {
     title,
@@ -72,6 +73,30 @@ export default function RootLayout({ children }: Props) {
         <meta
           name="viewport"
           content="width=device-width, initial-scale=1, viewport-fit=cover"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="192x192"
+          href="/android-icon-192x192.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="32x32"
+          href="/favicon-32x32.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="96x96"
+          href="/favicon-96x96.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="16x16"
+          href="/favicon-16x16.png"
         />
       </head>
       <body className="h-dvh antialiased">
