@@ -34,4 +34,6 @@ const addLocationChangeEvent = () => {
   window.addEventListener("popstate", fireLocationChangeEvent)
 }
 
-addLocationChangeEvent()
+if (typeof window !== "undefined") {
+  addLocationChangeEvent()
+}
