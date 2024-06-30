@@ -1,3 +1,10 @@
 {
-  "cleanUrls": true
+  "cleanUrls": true,
+  "redirects": [
+    {
+      "source": "/slide",
+      "destination": "https://www.figma.com/deck/901nkgERO0JfSUkc0Tpy4t/Connect-less-Payments",
+      "permanent": false
+    }
+  ]
 }
