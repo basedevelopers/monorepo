@@ -1,18 +1,13 @@
 {
   "name": "@basedev/pay",
   "description": "Simple and secure crypto payments, without connect wallet",
-  "version": "0.0.3",
+  "version": "0.1.0",
   "homepage": "https://base.dev",
   "repository": {
     "type": "git",
     "url": "https://github.com/basedevelopers/monorepo/tree/main/packages/pay"
   },
-  "keywords": [
-    "crypto",
-    "payments",
-    "web3",
-    "base"
-  ],
+  "keywords": ["crypto", "payments", "web3", "base"],
   "scripts": {
     "dev": "vitest",
     "publish": "jsr publish",

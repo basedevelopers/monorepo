@@ -1,6 +1,12 @@
 import { type Hex, hexToString } from "viem"
 
-export const hexToData = (hex: Hex) => {
+/*
+ * hexToData is a function that converts a hex string to a JSON object.
+ *
+ * @param hex - The hex string to convert.
+ * @returns The JSON object converted from the hex string.
+ */
+export const hexToData = (hex: Hex): any | null => {
   const data = findJSONSubstring(hexToString(hex))
 
   if (!data) {

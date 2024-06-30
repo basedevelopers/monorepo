@@ -1,3 +1,6 @@
+/*
+ * ERC20 ABI
+ */
 export const abi = [
   {
     constant: true,

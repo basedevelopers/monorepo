@@ -1,5 +1,5 @@
 {
   "name": "@basedev/pay",
-  "version": "0.0.3",
+  "version": "0.1.0",
   "exports": "./index.ts"
 }

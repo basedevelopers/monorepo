@@ -6,6 +6,9 @@ const name = "USDC"
 const symbol = "USDC"
 const decimals = 6
 
+/*
+ * USDC is an object that contains the USDC ERC20 token info for each chain.
+ */
 export const USDC: { [key in number]: ERC20 } = {
   [base.id]: {
     type,
