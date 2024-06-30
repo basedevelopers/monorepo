@@ -43,7 +43,6 @@ memoize.Cache = Map
 
 export const getInfo = memoize(async () => {
   const info = await getWhoami()
-  console.log(info)
   const { longitude, latitude } = info
 
   const geo = await getGeo({ longitude, latitude })

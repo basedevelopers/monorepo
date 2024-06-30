@@ -221,7 +221,7 @@ export default function Page() {
                 size="sm"
                 disabled={!isValid}
               >
-                {isPending ? <Loader2 className="size-5" /> : `Buy`}
+                {isPending ? <Loader2 className="size-5" /> : `Pay`}
               </Button>
             </CardFooter>
           </Card>

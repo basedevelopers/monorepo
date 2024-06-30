@@ -46,7 +46,7 @@ const CoinbaseMono = localFont({
 })
 
 export const generateMetadata = async (): Promise<Metadata> => {
-  const title = "Connect-less Pay Demo"
+  const title = "Connect-less Payments Demo"
   const description =
     "Simple and secure crypto payments, without connect wallet"
 

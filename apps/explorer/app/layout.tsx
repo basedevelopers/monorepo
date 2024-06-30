@@ -46,8 +46,8 @@ type Props = {
 }
 
 export const generateMetadata = async (): Promise<Metadata> => {
-  const title = "Base Payments Explorer"
-  const description = ""
+  const title = "Connect-less Payments Explorer"
+  const description = "Explore the Connect-less Payments"
 
   return {
     title,
