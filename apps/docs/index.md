@@ -1,5 +1,4 @@
 ---
-# https://vitepress.dev/reference/default-theme-home-page
 layout: home
 
 hero:
@@ -37,28 +36,3 @@ features:
     title: Support USDC & ETH
     details: Support USDC and ETH payments.
 ---
-
-<style>
-:root {
-  --vp-home-hero-name-color: transparent;
-  --vp-home-hero-name-background: -webkit-linear-gradient(120deg, #6B26D9 30%, #06b6d4);
-
-  --vp-home-hero-image-background-image: linear-gradient(-45deg, #6B26D9 50%, #06b6d4 50%);
-  --vp-home-hero-image-filter: blur(44px);
-  --vp-c-brand-1: hsl(263.4, 70%, 60.4%);
-  --vp-c-brand-2: hsl(263.4, 70%, 55.4%);
-  --vp-c-brand-3: hsl(263.4, 70%, 50.4%);
-}
-
-@media (min-width: 640px) {
-  :root {
-    --vp-home-hero-image-filter: blur(56px);
-  }
-}
-
-@media (min-width: 960px) {
-  :root {
-    --vp-home-hero-image-filter: blur(68px);
-  }
-}
-</style>

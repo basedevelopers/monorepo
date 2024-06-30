@@ -1,3 +1,5 @@
+import "./index.css"
+
 import { config, sendLog } from "@basedev/common/hooks/useLogging"
 import { isLocal } from "@basedev/common/utils/isLocal"
 import { isServer } from "@basedev/common/utils/isServer"
