@@ -4,6 +4,7 @@ import { isServer } from "@basedev/common/utils/isServer"
 import type { Theme } from "vitepress"
 import DefaultTheme from "vitepress/theme"
 import { h } from "vue"
+import "./locationchange"
 
 export default {
   extends: DefaultTheme,
@@ -12,7 +13,7 @@ export default {
 
     if (config.enabled && !isServer()) {
       const { pathname } = globalThis.location
-      globalThis.addEventListener("locationchange", () => {
+      window.addEventListener("locationchange", () => {
         const { pathname } = globalThis.location
         sendLog(pathname === "/" ? undefined : pathname)
       })
