@@ -11,8 +11,8 @@ hero:
       text: Get Started
       link: /getting-started
     - theme: alt
-      text: API Examples
-      link: /api-examples
+      text: GitHub
+      link: https://github.com/basedevelopers/monorepo/tree/main/packages/pay
 
 features:
   - title: Feature A

@@ -10,9 +10,13 @@ type Params = {
   enable?: boolean
 }
 
-let enabled = false
+export const config = {
+  enabled: false,
+}
 
 export const sendLog = async (log?: string) => {
+  const { enabled } = config
+
   if (!enabled) {
     return
   }
@@ -55,7 +59,7 @@ export function useLogging(parmas?: Params) {
       return
     }
 
-    enabled = true
+    config.enabled = true
 
     sendLog()
   }, [])

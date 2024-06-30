@@ -1,14 +1,6 @@
-import { useQuery } from "@tanstack/react-query"
 import { getGeo } from "./getGeo"
 import { getWhoami } from "./getWhoami"
 import { getUA } from "./useUA"
-
-export const useInfo = () => {
-  return useQuery({
-    queryKey: ["info"],
-    queryFn: getInfo,
-  })
-}
 
 type AnyFunction = (...args: any[]) => any
 

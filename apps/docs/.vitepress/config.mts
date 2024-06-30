@@ -1,12 +1,15 @@
 import { defineConfig } from "vitepress"
 
-// https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: "Connect-less Payments",
   description: "Simple and secure crypto payments, without connect wallet",
+  lastUpdated: true,
   themeConfig: {
-    // https://vitepress.dev/reference/default-theme-config
-    nav: [{ text: "Home", link: "/" }],
+    nav: [
+      { text: "Home", link: "/" },
+      { text: "Guide", link: "/why" },
+      { text: "Demo", link: "/demo" },
+    ],
 
     sidebar: [
       {
@@ -15,6 +18,7 @@ export default defineConfig({
           { text: "Why Connect-less Payments?", link: "/why" },
           { text: "Installation", link: "/installation" },
           { text: "Getting Started", link: "/getting-started" },
+          { text: "Demo", link: "/demo" },
         ],
       },
     ],
@@ -23,6 +27,18 @@ export default defineConfig({
       { icon: "github", link: "https://github.com/basedevelopers/monorepo" },
       { icon: "x", link: "https://x.com/basedotdev" },
     ],
+    search: {
+      provider: "local",
+    },
+    editLink: {
+      pattern:
+        "https://github.com/basedevelopers/monorepo/edit/dev/apps/docs/:path",
+      text: "Edit this page on GitHub",
+    },
+    footer: {
+      message: "Released under the MIT License.",
+      copyright: "Copyright © 2024-present base.dev",
+    },
   },
   cleanUrls: true,
   outDir: "./dist",
