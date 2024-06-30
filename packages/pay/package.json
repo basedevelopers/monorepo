@@ -1,7 +1,7 @@
 {
   "name": "@basedev/pay",
   "description": "Simple and secure crypto payments, without connect wallet",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "homepage": "https://base.dev",
   "repository": {
     "type": "git",

@@ -24,13 +24,13 @@ const PAYMASTER_URL: { [key: string]: string } = {
   [baseSepolia.id]: `https://api.developer.coinbase.com/rpc/v1/base-sepolia/7jvXamhQ7ntv6o4pmGSNlRuPifq9Q95b`,
 }
 
-/*
+/**
  * BasePay is a function that creates a BaseInstance
  *
- * @params {BasePayParams} params - The parameters for the BasePay function.
- * @params {Address} params.to - The address to send the payment to.
- * @params {Transport} [params.transport] - The transport to use for the client.
- * @params {boolean} [params.testnet=false] - Whether to use the Base Sepolia testnet or not.
+ * @param {BasePayParams} params - The parameters for the BasePay function.
+ * @param {Address} params.to - The address to send the payment to.
+ * @param {Transport} [params.transport] - The transport to use for the client.
+ * @param {boolean} [params.testnet=false] - Whether to use the Base Sepolia testnet or not.
  *
  * @returns {BaseInstance} - The BaseInstance created by the BasePay function.
  */

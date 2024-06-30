@@ -1,4 +1,4 @@
-/*
+/**
  * ERC20 ABI
  */
 export const abi = [
