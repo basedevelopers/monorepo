@@ -7,6 +7,15 @@ As it is under active development, the interface may change.
 
 Get started with connect-less payments in just a few lines of code.
 
+## Overview
+
+Connect-less Payments is a simple and secure crypto payment library that allows you to accept payments without connecting a wallet. It is built on the Base network and supports USDC and ETH payments.
+
+- **Lightweight**: Tiny bundle size, tree-shakable and minimal API surface.
+- **TypeScript Ready**: Written in TypeScript with predictable static types.
+- **Connect-less Pay**: Secure crypto payments without connect wallet.
+- **Support USDC & ETH**: Support USDC and ETH payments.
+
 ## Installation
 
 :::code-group
@@ -59,3 +68,7 @@ const { hash } = await Base.payment({
 ```
 
 This will open the Coinbase Wallet Send page in a new popup window with all parameters filled in.
+
+<img src="/getting-started-1.png" width="350" alt="Getting Started" />
+
+<!-- ![](/getting-started-1.png) -->
