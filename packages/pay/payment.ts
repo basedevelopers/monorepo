@@ -31,6 +31,17 @@ type Payment = (
   Base: BaseInstance,
 ) => (params: PaymentParams) => Promise<PaymentReturn>
 
+/*
+ * payment is a function that creates a payment transaction.
+ *
+ * @params {BaseInstance} Base - The BaseInstance to use for the payment.
+ * @params {PaymentParams} params - The parameters for the payment transaction.
+ * @params {SupportedCurrency} params.currency - The currency to use for the payment. Either "ETH" or "USDC".
+ * @params {number} params.amount - The amount to pay.
+ * @params {Product[]} [params.products] - The products to pay for.
+ *
+ * @returns {Promise<PaymentReturn>} - The payment transaction hash.
+ */
 export const payment: Payment = (Base) => async (params) => {
   const { client, to, chain, transport } = Base
   const { currency, amount, products } = params

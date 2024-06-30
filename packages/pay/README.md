@@ -1,10 +1,18 @@
 # BasePay
 
-BasePay is a simple payment library that allows you to send money to any address on the Base blockchain with Coinbase Wallet.
+Simple and secure crypto payments, without connect wallet.
+
+Learn more about BasePay at [base.dev](https://base.dev).
 
 # Example
 
+```sh
+npx jsr add @basedev/pay
+```
+
 ```ts
+import { BasePay } from "@basedev/pay";
+
 const Base = BasePay({
   testnet: true,
   to: "0x...",
