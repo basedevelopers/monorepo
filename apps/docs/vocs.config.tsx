@@ -16,6 +16,7 @@ export default defineConfig({
       link: "/getting-started",
     },
   ],
+  rootDir: ".",
   socials: [
     {
       icon: "github",
@@ -27,7 +28,6 @@ export default defineConfig({
     },
   ],
   head({ path }) {
-    // if (path === "/docs") return <></>
     return (
       <>
         <link

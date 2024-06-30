@@ -27,7 +27,7 @@ export const Loader = ({ size = 4, className, ...props }: Props) => {
           .fill(0)
           .map((_, i) => (
             <div
-              className="-left-[10%] -top-[3.9%] absolute h-[8%] w-[24%] animate-spinner rounded-md bg-[hsl(0,0%,43.5%)] duration-[1200]"
+              className="-left-[10%] -top-[3.9%] absolute h-[8%] w-[24%] animate-spinner rounded-md bg-[hsl(0,0%,43.5%)]"
               style={{
                 animationDuration: `${speed}s`,
                 animationIterationCount: "infinite",
