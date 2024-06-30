@@ -67,7 +67,7 @@ export default function RootLayout({ children }: Props) {
   return (
     <html
       lang="en"
-      className={cn("blue", CoinbaseSans.variable, CoinbaseMono.variable)}
+      className={cn("violet", CoinbaseSans.variable, CoinbaseMono.variable)}
     >
       <head>
         <meta

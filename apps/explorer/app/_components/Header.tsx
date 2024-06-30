@@ -2,7 +2,7 @@
 
 import { useColorTheme } from "@/app/_hooks/useColorTheme"
 import { isTestnet } from "@/utils/isTestnet"
-import { BaseLogo } from "@basedev/common/components/BaseLogo"
+import { ConnectlessLogo } from "@basedev/common/components/BaseLogo"
 import { Badge } from "@basedev/common/components/ui/badge"
 import { Button } from "@basedev/common/components/ui/button"
 import {
@@ -28,11 +28,8 @@ export function Header() {
 
   return (
     <header className="flex min-h-12 w-full items-center gap-2 px-2.5 py-3">
-      <BaseLogo
-        className={cn(
-          "aspect-square size-8 cursor-pointer hover:opacity-80",
-          colorTheme === "blue" ? `fill-[#0052FF]` : `fill-primary`,
-        )}
+      <ConnectlessLogo
+        className={cn("aspect-square size-8 cursor-pointer hover:opacity-80")}
         onClick={toggle}
       />
 

@@ -1,7 +1,7 @@
 "use client"
 
 import { Value } from "@/app/_components/Value"
-import { BaseLogo } from "@basedev/common/components/BaseLogo"
+import { ConnectlessLogo } from "@basedev/common/components/BaseLogo"
 import { Loader2 } from "@basedev/common/components/Loader2"
 import { Button } from "@basedev/common/components/ui/button"
 import {
@@ -118,7 +118,7 @@ export default function Page() {
           <Card>
             <CardHeader>
               <CardTitle className="flex items-center gap-2.5 text-xl">
-                <BaseLogo className="size-8 fill-[#0052FF]" />
+                <ConnectlessLogo className="size-8 fill-primary" />
                 Conect-less Payments Demo
               </CardTitle>
             </CardHeader>
@@ -162,7 +162,7 @@ export default function Page() {
                   <Button
                     asChild
                     variant="link"
-                    className="flex h-4 gap-1 self-end p-0 text-xs opacity-70 hover:opacity-100"
+                    className="flex h-4 gap-1 self-end p-0 text-xs opacity-90 hover:opacity-100"
                   >
                     <a
                       href="https://faucet.circle.com"

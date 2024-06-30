@@ -70,6 +70,7 @@ export default function RootLayout({ children }: Props) {
         "scrollbar-hide",
         CoinbaseSans.variable,
         CoinbaseMono.variable,
+        "violet",
       )}
       suppressHydrationWarning
     >

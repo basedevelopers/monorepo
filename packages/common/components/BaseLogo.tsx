@@ -1,22 +1,35 @@
 import type { SVGProps } from "react"
+import { cn } from "../lib/utils"
 
 type Props = SVGProps<SVGSVGElement>
 
-export const BaseLogo = (props: Props) => {
+export const ConnectlessLogo = (props: Props) => {
   return (
     <svg
-      width="146"
-      height="146"
-      viewBox="0 0 146 146"
+      width="1000"
+      height="1000"
+      viewBox="0 0 1000 1000"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       {...props}
+      className={cn("fill-primary", props.className)}
     >
-      <circle cx="73" cy="73" r="73" fill="inherit" />
-      <path
-        d="M73.323 123.729C101.617 123.729 124.553 100.832 124.553 72.5875C124.553 44.343 101.617 21.4463 73.323 21.4463C46.4795 21.4463 24.4581 42.0558 22.271 68.2887H89.9859V76.8864H22.271C24.4581 103.119 46.4795 123.729 73.323 123.729Z"
-        fill="white"
-      />
+      <g clip-path="url(#clip0_4984_28)">
+        <path
+          d="M500 1000C776.142 1000 1000 776.142 1000 500C1000 223.858 776.142 0 500 0C223.858 0 0 223.858 0 500C0 776.142 223.858 1000 500 1000Z"
+          fill="current"
+        />
+        <rect x="150" y="147" width="700" height="700" rx="350" fill="white" />
+      </g>
+      <defs>
+        <clipPath id="clip0_4984_28">
+          <rect width="1000" height="1000" fill="white" />
+        </clipPath>
+      </defs>
     </svg>
   )
 }
+
+// rgb(107, 38, 217)
+// #6B26D9
+// hsl(263.4, 70%, 50.4%)
