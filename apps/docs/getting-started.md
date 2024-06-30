@@ -11,19 +11,19 @@ Get started with connect-less payments in just a few lines of code.
 
 :::code-group
 
-```bash [npm]
+```sh [npm]
 npx jsr add @basedev/pay
 ```
 
-```bash [pnpm]
+```sh [pnpm]
 pnpx jsr add @basedev/pay
 ```
 
-```bash [yarn]
+```sh [yarn]
 yarn dlx jsr add @basedev/pay
 ```
 
-```bash [bun]
+```sh [bun]
 bunx jsr add @basedev/pay
 ```
 

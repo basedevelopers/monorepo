@@ -15,19 +15,19 @@ Install the required packages.
 
 :::code-group
 
-```bash [npm]
+```sh [npm]
 npx jsr add @basedev/pay
 ```
 
-```bash [pnpm]
+```sh [pnpm]
 pnpx jsr add @basedev/pay
 ```
 
-```bash [yarn]
+```sh [yarn]
 yarn dlx jsr add @basedev/pay
 ```
 
-```bash [bun]
+```sh [bun]
 bunx jsr add @basedev/pay
 ```
 
