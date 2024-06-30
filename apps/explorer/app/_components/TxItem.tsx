@@ -32,7 +32,7 @@ export const TxItem = ({ hash }: Props) => {
           src={image}
           width={200}
           height={200}
-          className="aspect-square @lg:size-32 size-24"
+          className="flex aspect-square @lg:size-32 size-24 object-cover object-center"
           alt={name}
         />
 

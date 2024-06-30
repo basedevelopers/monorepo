@@ -1,6 +1,7 @@
 "use client"
 
 import { Value } from "@/app/_components/Value"
+import { products } from "@/app/_products"
 import { ConnectlessLogo } from "@basedev/common/components/ConnectlessLogo"
 import { Loader2 } from "@basedev/common/components/Loader2"
 import { Button } from "@basedev/common/components/ui/button"
@@ -21,6 +22,7 @@ import { Input } from "@basedev/common/components/ui/input"
 import { Tabs, TabsList, TabsTrigger } from "@basedev/common/components/ui/tabs"
 import { sendLog } from "@basedev/common/hooks/useLogging"
 import { getHost } from "@basedev/common/utils/getHost"
+import { getRandom } from "@basedev/common/utils/getRandom"
 import { BasePay } from "@basedev/pay"
 import type { SupportedCurrency } from "@basedev/pay/payment"
 import { zodResolver } from "@hookform/resolvers/zod"
@@ -74,13 +76,7 @@ export default function Page() {
     const { hash } = await Base.payment({
       currency: currency as SupportedCurrency,
       amount,
-      products: [
-        {
-          id: crypto.randomUUID(),
-          name: `Product ${Math.random().toString().slice(-3)}`,
-          image: `https://picsum.photos/id/${Math.floor(Math.random() * 1085)}/500/500`,
-        },
-      ],
+      products: [getRandom(products)],
     })
 
     toast.success(

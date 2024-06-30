@@ -1,4 +1,5 @@
 import { Main } from "@/components/Main"
+import { CFAnalytics } from "@basedev/common/components/CFAnalytics"
 import { QueryProvider } from "@basedev/common/components/QueryProvider"
 import { ThemeProvider } from "@basedev/common/components/ThemeProvider"
 import type { PropsWithChildren } from "react"

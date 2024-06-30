@@ -14,7 +14,7 @@ export const ConnectlessLogo = (props: Props) => {
       {...props}
       className={cn("fill-primary", props.className)}
     >
-      <g clip-path="url(#clip0_4984_28)">
+      <g clipPath="url(#clip0_4984_28)">
         <path
           d="M500 1000C776.142 1000 1000 776.142 1000 500C1000 223.858 776.142 0 500 0C223.858 0 0 223.858 0 500C0 776.142 223.858 1000 500 1000Z"
           fill="current"
