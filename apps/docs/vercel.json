@@ -5,6 +5,31 @@
       "source": "/slide",
       "destination": "https://www.figma.com/deck/901nkgERO0JfSUkc0Tpy4t/Connect-less-Payments",
       "permanent": false
+    },
+    {
+      "source": "/slide/",
+      "destination": "https://www.figma.com/deck/901nkgERO0JfSUkc0Tpy4t/Connect-less-Payments",
+      "permanent": false
+    },
+    {
+      "source": "/github",
+      "destination": "https://github.com/basedevelopers/monorepo",
+      "permanent": false
+    },
+    {
+      "source": "/github/",
+      "destination": "https://github.com/basedevelopers/monorepo",
+      "permanent": false
+    },
+    {
+      "source": "/x",
+      "destination": "https://x.com/basedotdev",
+      "permanent": false
+    },
+    {
+      "source": "/x/",
+      "destination": "https://x.com/basedotdev",
+      "permanent": false
     }
   ]
 }
