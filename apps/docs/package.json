@@ -8,7 +8,7 @@
     "preview": "vitepress preview"
   },
   "devDependencies": {
-    "vitepress": "^1.2.3",
-    "@basedev/common": "workspace:*"
+    "@basedev/common": "workspace:*",
+    "vitepress": "^1.2.3"
   }
 }
