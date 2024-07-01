@@ -51,11 +51,9 @@ export const payment: Payment = (Base) => async (params) => {
   }
 
   const privateKey = generatePrivateKey()
-  // const account = privateKeyToAccount(privateKey)
 
   const simpleAccount = await privateKeyToSimpleSmartAccount(client, {
     privateKey,
-    // address: account.address,
     entryPoint: ENTRYPOINT_ADDRESS_V06,
   })
 
@@ -137,6 +135,8 @@ type WaitPaymentParams = {
   currency: SupportedCurrency
 }
 
+const DEFAULT_RETRY_DELAY = 250
+
 export const waitPayment = ({
   address,
   amount,
@@ -153,7 +153,7 @@ export const waitPayment = ({
           return
         }
 
-        await wait(client.transport.retryDelay ?? 500)
+        await wait(client.transport.retryDelay ?? DEFAULT_RETRY_DELAY)
       } else if (currency === "USDC") {
         const { amount: balance } = await client.getERC20BalanceOf({
           erc20: USDC[client.chain.id],
@@ -167,7 +167,7 @@ export const waitPayment = ({
           return
         }
 
-        await wait(client.transport.retryDelay ?? 500)
+        await wait(client.transport.retryDelay ?? DEFAULT_RETRY_DELAY)
       }
     }
 

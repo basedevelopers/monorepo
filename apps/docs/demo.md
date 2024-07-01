@@ -1,3 +1,0 @@
-# Demo Video
-
-<!-- Demo Video -->

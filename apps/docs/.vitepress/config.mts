@@ -18,7 +18,6 @@ export default defineConfig({
           { text: "Why Connect-less Payments?", link: "/why" },
           { text: "Installation", link: "/installation" },
           { text: "Getting Started", link: "/getting-started" },
-          { text: "Demo video", link: "/demo" },
           { text: "Example", link: "https://demo.base.dev" },
         ],
       },

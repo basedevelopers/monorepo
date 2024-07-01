@@ -30,6 +30,16 @@
       "source": "/x/",
       "destination": "https://x.com/basedotdev",
       "permanent": false
+    },
+    {
+      "source": "/demo",
+      "destination": "https://www.youtube.com/watch?v=tng2kX4aex8",
+      "permanent": false
+    },
+    {
+      "source": "/demo/",
+      "destination": "https://www.youtube.com/watch?v=tng2kX4aex8",
+      "permanent": false
     }
   ]
 }
