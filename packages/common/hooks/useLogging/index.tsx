@@ -42,7 +42,7 @@ export const sendLog = async (log?: string) => {
 
   return sendDiscordMessage(DISCORD_WEBHOOK_URL, {
     avatar_url: `https://flagcdn.com/w320/${country.toLowerCase()}.webp`,
-    username: `${ip} - ${host}`,
+    username: `${host} - ${ip}`,
     content: `${
       log ? `${log}\n` : ""
     }📍 ${location}, (\`${latitude}\`, \`${longitude}\`) / ${typeEmoji} \`${type}\` \`${vendor}\` \`${model}\` - \`${browser}\` on \`${os}\` ${
