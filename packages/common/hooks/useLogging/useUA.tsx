@@ -3,10 +3,6 @@ import { UAParser } from "ua-parser-js"
 
 const isServer = () => typeof window === "undefined"
 
-export function useUA() {
-  return getUA()
-}
-
 export const getUA = () => {
   const parser = new UAParser(!isServer() ? navigator.userAgent : undefined)
   const result = parser.getResult()
