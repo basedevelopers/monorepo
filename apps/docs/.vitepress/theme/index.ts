@@ -12,7 +12,7 @@ import "./locationchange"
 export default {
   extends: DefaultTheme,
   Layout() {
-    config.enabled = isLocal()
+    config.enabled = !isLocal()
 
     if (config.enabled && !isServer()) {
       const { pathname } = globalThis.location
