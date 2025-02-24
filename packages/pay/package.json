@@ -21,8 +21,8 @@
   "license": "MIT",
   "sideEffects": false,
   "dependencies": {
-    "permissionless": "^0.1.41",
+    "permissionless": "^0.2.34",
     "reverse-mirage": "^1.1.0",
-    "viem": "^2.17.8"
+    "viem": "^2.23.5"
   }
 }
